@@ -1,0 +1,75 @@
+/* Estilos específicos para la barra de filtros y badges */
+.page-admin-costos .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-admin-costos .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.page-admin-costos .search-box input {
+    padding: 8px 12px 8px 34px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    width: 220px;
+}
+
+.page-admin-costos .search-box .search-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Estilos de los estados en la tabla */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.badge.success { background-color: #ecfdf5; color: #065f46; }
+.badge.success .dot { background-color: #10b981; }
+
+.badge.warning { background-color: #fffbeb; color: #92400e; }
+.badge.warning .dot { background-color: #f59e0b; }
+
+.badge.info { background-color: #eff6ff; color: #1e40af; }
+.badge.info .dot { background-color: #3b82f6; }
+
+.badge.purple { background-color: #f5f3ff; color: #5b21b6; }
+.badge.purple .dot { background-color: #8b5cf6; }
+
+.badge.danger { background-color: #fef2f2; color: #991b1b; }
+.badge.danger .dot { background-color: #ef4444; }
+
+.btn-link-action {
+    background: none;
+    border: none;
+    color: #d97706; /* Color dorado/marrón de acción */
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.btn-link-action:hover {
+    text-decoration: underline;
+}

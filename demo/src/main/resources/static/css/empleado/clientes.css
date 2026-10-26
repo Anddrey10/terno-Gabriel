@@ -1,0 +1,39 @@
+/* Estilos específicos de Clientes. */
+.page-empleado-clientes .content { }
+
+/* Badges de estado en la tabla (Estilo de pastilla con punto) */
+.page-empleado-clientes .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Punto indicador */
+.page-empleado-clientes .status-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Estado Activo (Verde) */
+.page-empleado-clientes .status-badge.active {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+.page-empleado-clientes .status-badge.active .dot {
+    background-color: #137333;
+}
+
+/* Estado Con deuda (Rojo) */
+.page-empleado-clientes .status-badge.debt {
+    background-color: #fce8e6;
+    color: #c5221f;
+}
+.page-empleado-clientes .status-badge.debt .dot {
+    background-color: #c5221f;
+}

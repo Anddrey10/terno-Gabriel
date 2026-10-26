@@ -1,0 +1,289 @@
+/* =====================================================================
+   responsive.css · Capa responsiva común de Terno Gabriel
+   Se carga AL FINAL en todas las pantallas (después de global.css y del
+   CSS propio de cada página), así que un solo archivo adapta todo el sistema.
+
+   Dispositivos cubiertos
+     Celular vertical     320 – 580 px
+     Celular horizontal   581 – 820 px (y alturas cortas)
+     Tableta vertical     581 – 820 px
+     Tableta horizontal   821 – 1100 px  (menú lateral compacto)
+     Laptop               1101 – 1599 px
+     Monitor Full HD+     1920 px en adelante  (escala proporcional)
+     TV / 4K              2400 px en adelante  (escala proporcional)
+   ===================================================================== */
+
+:root {
+  --ui-zoom: 1;                              /* factor de escala para pantallas grandes */
+  --safe-t: env(safe-area-inset-top, 0px);   /* notch / barras del sistema */
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+}
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+img, svg, video, canvas { max-width: 100%; }
+table { max-width: 100%; }
+.card, .content > *, .page-header > div, .modal, .table-wrap, .table-responsive { min-width: 0; }
+.kpi-copy, .field, .card-head > div { overflow-wrap: break-word; }
+
+
+/* Botones de acción de boleta (Descargar PDF / Imprimir): componente común de
+   compra-alquiler, confección y devolución. Si no caben, bajan de línea. */
+.boleta-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px; }
+.boleta-actions > .btn { min-width: 0; white-space: nowrap; }
+@media (max-width: 580px) {
+  .boleta-actions > .btn { flex: 1 1 100%; justify-content: center; text-align: center; }
+}
+
+/* ---------- Pantallas grandes: monitores Full HD / 2K / 4K / TV ----------
+   Todo el sistema usa tamaños en px muy pequeños; en pantallas grandes se
+   escala de forma proporcional para que se vea igual de nítido y legible. */
+@supports (zoom: 1) {
+  html { zoom: var(--ui-zoom); }
+}
+@media (min-width: 1920px) { :root { --ui-zoom: 1.15; } }
+@media (min-width: 2400px) { :root { --ui-zoom: 1.4; } }
+@media (min-width: 3000px) { :root { --ui-zoom: 1.8; } }
+@media (min-width: 3600px) { :root { --ui-zoom: 2.2; } }
+
+/* Alturas de pantalla completa compensando la escala (y barras dinámicas del móvil) */
+.app-shell, .main { min-height: calc(100vh / var(--ui-zoom)); min-height: calc(100dvh / var(--ui-zoom)); }
+.sidebar { height: auto; }  /* ya está anclado con inset: 0 auto 0 0 */
+.login-page, .login-panel { min-height: calc(100vh / var(--ui-zoom)); min-height: calc(100dvh / var(--ui-zoom)); }
+.modal { max-height: calc(90vh / var(--ui-zoom)); max-height: calc(90dvh / var(--ui-zoom)); }
+.modal-overlay { width: 100%; max-width: 100%; overflow-y: auto; }
+.modal-overlay > *, .modal-backdrop > * { max-width: 100%; }
+
+/* Menú lateral con scroll interno si la pantalla es baja */
+.sidebar nav { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.sidebar { padding-bottom: var(--safe-b); }
+
+/* Tablas: desplazamiento horizontal fluido en pantallas táctiles */
+.table-wrap, .table-responsive, .boleta-table-wrap {
+  max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain; scrollbar-width: thin;
+}
+
+/* Monitores anchos: más columnas en las grillas de tarjetas */
+@media (min-width: 1500px) {
+  .product-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .page-empleado-comprar-alquilar .catalog-grid-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ---------- Laptop pequeña / tableta horizontal (≤ 1100 px) ---------- */
+@media (max-width: 1100px) {
+  .filter-row, .card-head, .header-actions, .actions, .row-actions { flex-wrap: wrap; }
+  .card-head { gap: 12px; }
+  .kpi-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .report-types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  [style*="repeat(5, 1fr)"], [style*="repeat(5,1fr)"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+/* ---------- Tableta horizontal: menú lateral compacto (821 – 1100 px) ---------- */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .app-shell { --sidebar: 76px; }
+  .app-shell .brand-copy,
+  .app-shell .sidebar nav a > span:not(.nav-icon),
+  .app-shell .side-user > div:nth-child(2) { display: none; }
+  .app-shell .sidebar nav a { justify-content: center; padding: 0; border-left-color: transparent; }
+  .app-shell .side-brand { padding: 0; justify-content: center; }
+  .app-shell .collapse-btn { display: none; }
+  .app-shell .side-user { flex-direction: column; justify-content: center; gap: 8px; padding: 12px 6px; }
+  .page-header { padding-left: 28px; padding-right: 28px; }
+}
+@media (min-width: 1001px) and (max-width: 1100px) {
+  .kpi-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+/* El menú compacto también cuando el usuario lo contrae manualmente */
+.app-shell.is-collapsed .side-user { flex-direction: column; gap: 8px; padding: 12px 6px; }
+
+/* ---------- Aviso emergente (toast) y panel de notificaciones: base común ---------- */
+/* Por encima de cualquier ventana (calificación, formularios, panel) para que un error nunca quede tapado */
+.toast { z-index: 10050; max-width: min(460px, calc(100vw - 24px)); align-items: flex-start; }
+.toast > i { flex: 0 0 29px; }
+.toast > div { flex: 1 1 auto; min-width: 0; }
+.toast span { overflow-wrap: anywhere; }
+.toast .toast-close { flex: 0 0 auto; display: grid; place-items: center; width: 30px; height: 30px; margin: -4px -4px -4px 0; padding: 0; border: 0; border-radius: 8px; background: transparent; color: #667085; font-size: 22px; line-height: 1; cursor: pointer; }
+.toast .toast-close:hover { background: #f2f4f7; color: #101828; }
+.toast.is-error { border-color: #f3c7c2; }
+.toast.is-error > i { background: #fde8e6; color: #b42318; font-weight: 700; }
+.toast.is-info > i { background: #e8f0fe; color: #1d4ed8; font-weight: 700; }
+@keyframes tgToastArriba { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+
+/* Cabecera fija del panel: el × siempre queda a la vista aunque la lista sea larga */
+.tg-notify-head { position: sticky; top: -18px; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin: -18px -18px 4px; padding: 18px 18px 10px; background: #fff; border-radius: 14px 14px 0 0; }
+.tg-notify-head h2 { margin: 0 0 4px; }
+.tg-notify-head .tg-notify-sub { margin: 0; }
+.tg-notify-close { flex: 0 0 auto; float: none; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; font-size: 22px; line-height: 1; }
+.tg-notify-close:hover { background: #f2f0ea; }
+@media (pointer: coarse) { .toast .toast-close { min-width: 40px; min-height: 40px; } .tg-notify-close { min-width: 44px; min-height: 44px; } }
+@media print { .toast, .tg-notify-panel, .tg-notify-backdrop { display: none !important; } }
+
+/* ---------- Tableta vertical y celulares (≤ 820 px): menú tipo cajón ---------- */
+@media (max-width: 820px) {
+  .sidebar {
+    width: min(280px, 86vw); visibility: hidden; box-shadow: none;
+    transition: transform .25s ease, visibility 0s linear .25s;
+  }
+  .mobile-menu-open .sidebar { visibility: visible; box-shadow: 15px 0 50px rgba(0,0,0,.18); transition-delay: 0s; }
+  body.mobile-menu-open { overflow: hidden; }
+  body.mobile-menu-open::after { content: ""; position: fixed; inset: 0; background: rgba(28,27,24,.45); z-index: 35; }
+  /* Si el menú estaba contraído en escritorio, en móvil siempre se ve completo */
+  .app-shell.is-collapsed .brand-copy { display: block; }
+  .app-shell.is-collapsed .sidebar nav a > span:not(.nav-icon) { display: inline; }
+  .app-shell.is-collapsed .side-user > div:nth-child(2) { display: flex; }
+  .app-shell.is-collapsed .sidebar nav a { justify-content: flex-start; padding: 0 12px; }
+  .app-shell.is-collapsed .side-user { flex-direction: row; justify-content: flex-start; padding: 15px 12px; }
+  .app-shell.is-collapsed .side-brand { padding: 0 18px; justify-content: flex-start; }
+  .app-shell.is-collapsed { --sidebar: 0px; }
+
+  .mobile-header {
+    height: auto; min-height: 62px; padding-top: var(--safe-t);
+    padding-left: max(18px, var(--safe-l)); padding-right: max(18px, var(--safe-r));
+  }
+  .page-header { flex-direction: column; align-items: flex-start; padding-left: max(22px, var(--safe-l)); padding-right: max(22px, var(--safe-r)); }
+  .content { padding-left: max(18px, var(--safe-l)); padding-right: max(18px, var(--safe-r)); padding-bottom: calc(45px + var(--safe-b)); }
+
+  /* Tableta vertical y celular horizontal: formularios en 2 columnas, no en 1 */
+  .kpi-grid.five, .kpi-grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Grillas con estilos en línea (confección, clientes, comprobante) */
+  [style*="repeat(3, 1fr)"], [style*="repeat(3,1fr)"], [style*="1fr 1fr 1fr"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+  /* Pagos y devoluciones */
+  .metodos-pago { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pago-grid, .pago-grid.transferencia-layout { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  
+  .page-admin-reportes .form-grid.four-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page-admin-reportes .analytics-grid { grid-template-columns: 1fr; }
+
+  /* iOS no hace zoom automático al enfocar un campo si su texto es ≥ 16 px */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea { font-size: 16px !important; }
+
+  /* Aviso emergente (toast): arriba y a todo el ancho, con letra legible y botón × cómodo de tocar */
+  .toast { top: max(12px, var(--safe-t)); bottom: auto; left: max(12px, var(--safe-l)); right: max(12px, var(--safe-r)); max-width: none; gap: 12px; padding: 14px 8px 14px 14px; animation: tgToastArriba .25s ease; }
+  .toast > i { flex: 0 0 34px; width: 34px; height: 34px; font-size: 17px; }
+  .toast strong { font-size: 15px; }
+  .toast span { font-size: 14px; line-height: 1.4; }
+  .toast .toast-close { width: 40px; height: 40px; font-size: 26px; margin: -6px 0 -6px 0; }
+
+  /* Panel de notificaciones (campana): hoja a casi todo el ancho de la pantalla */
+  .tg-notify-backdrop { background: rgba(28,25,20,.45); }
+  .tg-notify-panel { left: max(10px, var(--safe-l)); right: max(10px, var(--safe-r)); top: max(10px, var(--safe-t)); width: auto; max-height: calc(100vh - 20px); max-height: calc(100dvh - 20px - var(--safe-t) - var(--safe-b)); overscroll-behavior: contain; }
+  .tg-notify-close { width: 44px; height: 44px; font-size: 28px; }
+}
+
+/* Tableta vertical (581 – 820): formularios cómodos en 2 columnas */
+@media (min-width: 581px) and (max-width: 820px) {
+  .form-grid.two, .form-grid.three, .form-grid.four, .form-grid.five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .login-form { max-width: 460px; margin: 0 auto; }
+  .form-grid[style*="repeat(3"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+/* ---------- Celulares (≤ 580 px) ---------- */
+@media (max-width: 580px) {
+  /* Indicador de pasos de Comprar / Alquilar: los 5 pasos siempre en una fila */
+  .flow-stepper.full-width-stepper { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+  .flow-stepper .step-item { flex-direction: column; min-width: 0; text-align: center; gap: 4px; }
+  .flow-stepper .step-item * { min-width: 0; overflow-wrap: anywhere; }
+  .flow-stepper .step-text, .flow-stepper .step-item span, .flow-stepper .step-item small { font-size: 10px; line-height: 1.2; white-space: normal; margin-top: 0; }
+  .flow-stepper .step-circle { width: 32px; height: 32px; font-size: 13px; }
+
+  .page-header h1 { font-size: clamp(21px, 6.4vw, 26px); }
+  .content { padding-top: 16px; }
+  .card { padding: 14px; }
+  .card-head > * { max-width: 100%; }
+
+  /* Buscadores y filtros a todo el ancho */
+  .ratings-search, .ratings-search input, .search-box, .search-box input,
+  .inventory-search-input, .page-admin-prendas .inventory-search-input,
+  .page-empleado-prendas .searchbox, .page-empleado-inicio .searchbox,
+  .filter-row > input, .filter-row > .search-box { width: 100% !important; min-width: 0; }
+  .page-admin-penalizaciones .filter-date { width: auto !important; flex: 1 1 130px; min-width: 0; }
+  .filter-row > .btn, .card-head > .btn, .card-head .actions .btn { flex: 1 1 100%; }
+  .boleta-filtros > *, .boleta-filtros label { flex: 1 1 100%; min-width: 0; }
+  .boleta-filtros input, .boleta-filtros select { width: 100%; }
+
+  .search-action, .inline-search { flex-direction: column; align-items: stretch; max-width: none; }
+  .search-action .field, .inline-search .field { flex: none; width: 100%; }
+  .search-action .btn, .inline-search .btn { width: 100%; }
+  input[style*="width: 210px"] { width: 100% !important; }
+
+  /* Grillas con estilos en línea: una columna */
+  [style*="grid-template-columns"]:not(.stepper):not(.flow-stepper) { grid-template-columns: minmax(0, 1fr) !important; }
+  [style*="grid-template-columns"] { gap: 12px; }
+  .form-grid[style*="repeat(3"] { grid-template-columns: minmax(0, 1fr) !important; }
+  .page-admin-reportes .form-grid.four-cols { grid-template-columns: 1fr; }
+  .kpi-grid.five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Métodos de pago y devoluciones */
+  .metodos-pago { gap: 8px; }
+  .metodo-btn { min-width: 0; padding: 10px 6px; font-size: .8rem; white-space: normal; overflow-wrap: anywhere; }
+  .pago-grid, .pago-grid.transferencia-layout { grid-template-columns: minmax(0, 1fr) !important; }
+  .p-table-header, .p-table-row, .p-table-footer { grid-template-columns: 1.6fr .8fr 1fr 1fr; font-size: .78rem; gap: 4px; }
+  .p-table-header > *, .p-table-row > *, .p-table-footer > * { min-width: 0; overflow-wrap: anywhere; }
+  .yape-qr-box { max-width: 100%; margin-left: 0; margin-right: 0; }
+
+  /* Tablas más compactas */
+  .data-table th { padding: 10px 8px; }
+  .data-table td { padding: 11px 8px; font-size: 11px; }
+
+  /* Ventanas emergentes */
+  .modal-backdrop { padding: 10px; }
+  .modal { padding: 18px; border-radius: 12px; }
+  .modal-head { margin-bottom: 14px; }
+  .modal-overlay { padding: 10px; }
+
+  /* Etapas y pestañas */
+  .tabs { overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { flex: 0 0 auto; padding: 10px 14px; white-space: nowrap; }
+
+  .login-panel { padding: 24px 20px; }
+  .demo-credentials small { font-size: 9px; }
+  .kpi-grid.four, .kpi-grid.three { gap: 10px; }
+}
+
+/* Tarjetas KPI de a dos por fila: icono arriba y texto debajo para que las cifras no se partan */
+@media (min-width: 381px) and (max-width: 580px) {
+  body:not(.page-empleado-inicio) .kpi-grid .card.kpi { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .kpi-grid .kpi-copy { width: 100%; }
+}
+
+/* ---------- Celulares muy angostos (≤ 380 px) ---------- */
+@media (max-width: 380px) {
+  .kpi-grid.four, .kpi-grid.three, .kpi-grid.five, .kpi-grid { grid-template-columns: minmax(0, 1fr); }
+  .page-empleado-inicio .kpi-grid.four { grid-template-columns: minmax(0, 1fr); }
+  .content { padding-left: max(12px, var(--safe-l)); padding-right: max(12px, var(--safe-r)); }
+  .card { padding: 12px; }
+  .report-types { grid-template-columns: minmax(0, 1fr); }
+  .summary-bar { grid-template-columns: minmax(0, 1fr); }
+  .summary-bar .btn { grid-column: auto; }
+}
+
+/* ---------- Celular horizontal / pantallas bajas ---------- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .mobile-header { position: static; min-height: 50px; }
+  .page-header { min-height: 0; padding-top: 14px; padding-bottom: 14px; }
+  .side-brand { height: 56px; }
+  .sidebar nav { padding-top: 10px; padding-bottom: 10px; }
+  .sidebar nav a { min-height: 38px; }
+  .login-panel { align-items: flex-start; }
+  .modal { max-height: calc(96dvh / var(--ui-zoom)); }
+}
+
+/* ---------- Pantallas táctiles: objetivos de toque cómodos ---------- */
+@media (pointer: coarse) {
+  .btn, .icon-btn, .sidebar nav a, .tabs button, .category-scroll button, .metodo-btn { min-height: 44px; }
+  .icon-btn { min-width: 44px; }
+  .row-actions button, .table-action { min-height: 36px; min-width: 36px; }
+  .sidebar nav a:hover, .btn:hover, .product-card:hover { transform: none; }
+}
+
+/* ---------- Preferencias del usuario ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+

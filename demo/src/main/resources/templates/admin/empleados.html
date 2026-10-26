@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Empleados | Terno Gabriel</title>
+    <link rel="icon" th:href="@{/img/favicon.svg}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/empleados.css}">
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body class="page-admin-empleados">
+    <div class="app-shell">
+        <aside th:replace="~{fragments/sidebar-admin :: sidebar('empleados')}"></aside>
+
+        <main class="main">
+            <header th:replace="~{fragments/mobile-header :: mobile-header}"></header>
+
+            <div class="page-header">
+                <div>
+                    <span class="frame-label"></span>
+                    <h1>Empleados</h1>
+                    <p>Gestión de accesos y colaboradores</p>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn notification" data-action="notify" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><i></i></button>
+                    <div class="date-block"><span>Hoy</span><strong data-current-date>-- --- ----</strong></div>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- CONTENEDOR PRINCIPAL IDENTICO A LA IMAGEN -->
+                <section class="card employees-card">
+                    <div class="card-head">
+                        <div class="head-title">
+                            <h2>Empleados</h2>
+                            <p id="contadorEmpleados">Cargando...</p>
+                        </div>
+                        <button class="btn btn-primary-gold" type="button" id="btnAgregarEmpleado">
+                            <span class="btn-icon">+</span> Agregar empleado
+                        </button>
+                    </div>
+
+                    <div class="barra-empleados" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:0 20px 14px;">
+                        <div class="tabs-switch" role="tablist">
+                            <button type="button" class="active" data-pestana="empleados">Empleados</button>
+                            <button type="button" class="is-suspendidos" data-pestana="suspendidos">Suspendidos</button>
+                        </div>
+                        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+                            <select id="filtroEstado" class="form-control" style="padding:9px 12px;border:1px solid #d6d2c8;border-radius:8px;font-size:13px;background:#fff;">
+                                <option value="Todos">Todos los estados</option>
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                            <div style="display:flex;flex-direction:column;gap:4px;">
+                                <input type="text" id="buscadorCodigo" placeholder="Buscar por código (E001)" maxlength="4" autocomplete="off" spellcheck="false"
+                                       style="padding:9px 12px;border:1px solid #d6d2c8;border-radius:8px;font-size:13px;width:210px;text-transform:uppercase;">
+                            </div>
+                        </div>
+                    </div>
+                    <p id="msgBusqueda" style="display:none;margin:0 20px 12px;padding:10px 14px;border-radius:8px;background:#fef3f2;color:#b42318;font-size:13px;font-weight:600;"></p>
+
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>CÓDIGO</th>
+                                    <th>NOMBRE</th>
+                                    <th>USUARIO</th>
+                                    <th>CORREO</th>
+                                    <th>TELÉFONO</th>
+                                    <th>ÁREA / PUESTO</th>
+                                    <th>ROL</th>
+                                    <th>ESTADO</th>
+                                    <th>FECHA INGRESO</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div th:replace="~{fragments/toast :: toast('Cambios guardados')}"></div>
+
+    <script th:src="@{/js/api.js}" defer></script>
+    <script th:src="@{/js/app.js}" defer></script>
+    <script th:src="@{/js/admin/empleados.js}" defer></script>
+</body>
+
+</html>

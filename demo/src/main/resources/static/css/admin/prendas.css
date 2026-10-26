@@ -1,0 +1,433 @@
+/* Estilos específicos de Estado de Prendas */
+
+/* Tarjetas KPI como botones interactivos */
+.kpi-filter {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    background-color: #ffffff;
+}
+
+.kpi-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --- ESTILOS ACTIVOS ESPECÍFICOS SEGÚN SU CATEGORÍA --- */
+
+/* 1. Todos (Crema) */
+.kpi-todos:hover {
+    border-color: #e2d9cc;
+    background-color: #fdfbf7;
+}
+.kpi-todos.active {
+    border-color: #d6c7b2;
+    background-color: #fcf8f2;
+}
+
+/* 2. Disponible (Verde pastel y borde verde) */
+.kpi-disponible:hover {
+    border-color: #92d8b0;
+    background-color: #f2fbf6;
+}
+.kpi-disponible.active {
+    border-color: #27864e;
+    background-color: #eaf8f0;
+}
+
+/* 3. Alquilado (Naranja/Amarillo pastel y borde naranja) */
+.kpi-alquilado:hover {
+    border-color: #f7d2a5;
+    background-color: #fffbf5;
+}
+.kpi-alquilado.active {
+    border-color: #d9822b;
+    background-color: #fef5e7;
+}
+
+/* 4. En confección / Restauración (Rojo/Rosa pastel y borde rojo) */
+.kpi-restauracion:hover {
+    border-color: #f8b4b6;
+    background-color: #fff6f7;
+}
+.kpi-restauracion.active {
+    border-color: #d9383a;
+    background-color: #fdebee;
+}
+
+/* Títulos y números con el texto conservado oscuro */
+.kpi-copy span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2c2c2c;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.kpi-copy strong {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111111;
+    line-height: 1.2;
+}
+
+.kpi-copy small {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555555;
+}
+
+/* Resto de diseño de la tarjeta de inventario y tabla */
+.inventory-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #333333;
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.inventory-title-group h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 4px 0;
+}
+
+.inventory-subtitle {
+    font-size: 13px;
+    color: #8c8c8c;
+    margin: 0;
+}
+
+.inventory-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: #a0a0a0;
+    pointer-events: none;
+}
+
+.inventory-search-input {
+    padding: 8px 14px 8px 36px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    width: 220px;
+    color: #333;
+    transition: border-color 0.2s ease;
+    background-color: #ffffff;
+}
+
+.inventory-search-input::placeholder {
+    color: #999999;
+}
+
+.inventory-search-input:focus {
+    border-color: #000000;
+}
+
+.inventory-select {
+    padding: 8px 32px 8px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333333;
+    background-color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: border-color 0.2s ease;
+}
+
+.inventory-select:focus {
+    border-color: #000000;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+    font-size: 13px;
+}
+
+.inventory-table thead tr {
+    background-color: #fcfbf9;
+}
+
+.inventory-table th {
+    padding: 14px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #736d64;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.inventory-table tbody tr {
+    border-bottom: 1px solid #f5f5f5;
+    transition: background-color 0.15s ease;
+}
+
+.inventory-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.inventory-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.inventory-table td {
+    padding: 16px;
+    vertical-align: middle;
+}
+
+.inventory-table th:nth-child(1), .inventory-table td:nth-child(1) { width: 12%; }
+.inventory-table th:nth-child(2), .inventory-table td:nth-child(2) { width: 22%; }
+.inventory-table th:nth-child(3), .inventory-table td:nth-child(3) { width: 8%; }
+.inventory-table th:nth-child(4), .inventory-table td:nth-child(4) { width: 14%; }
+.inventory-table th:nth-child(5), .inventory-table td:nth-child(5) { width: 14%; }
+.inventory-table th:nth-child(6), .inventory-table td:nth-child(6) { width: 14%; }
+.inventory-table th:nth-child(7), .inventory-table td:nth-child(7) { width: 16%; }
+.inventory-table td { overflow-wrap: anywhere; }
+/* Centrar talla, costo de alquiler, precio de venta y estado dentro de sus columnas */
+.inventory-table th:nth-child(3),
+.inventory-table td:nth-child(3),
+.inventory-table th:nth-child(4),
+.inventory-table td:nth-child(4),
+.inventory-table th:nth-child(5),
+.inventory-table td:nth-child(5),
+.inventory-table th:nth-child(6),
+.inventory-table td:nth-child(6) {
+    text-align: center;
+}
+
+.inventory-table td:nth-child(6) .status-badge {
+    justify-content: center;
+}
+.cost-col, .price-col { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.responsable-col { min-width: 130px; }
+
+.code-col { color: #666666; font-weight: 400; }
+.name-col { color: #1a1a1a; font-weight: 700; }
+.size-col { color: #555555; font-weight: 500; }
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-disponible { background-color: #eaf8f0; color: #27864e; }
+.status-disponible .status-dot { background-color: #27864e; }
+
+.status-alquilado { background-color: #fef5e7; color: #d9822b; }
+.status-alquilado .status-dot { background-color: #d9822b; }
+
+.status-lavanderia { background-color: #eaf3fa; color: #2b7bb9; }
+.status-lavanderia .status-dot { background-color: #2b7bb9; }
+
+.status-reservado { background-color: #f3ebf9; color: #8347ad; }
+.status-reservado .status-dot { background-color: #8347ad; }
+
+.status-restauracion { background-color: #fdebee; color: #d9383a; }
+.status-restauracion .status-dot { background-color: #d9383a; }
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-action svg {
+    width: 14px;
+    height: 14px;
+    stroke: #555555;
+}
+
+.btn-action:hover {
+    background-color: #f8f8f8;
+    border-color: #bfbfbf;
+    color: #000000;
+}
+
+/* El contenedor de Inventario de prendas mantiene el mismo diseño que Empleado. */
+.page-admin-prendas .inventory-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+.page-admin-prendas .inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.page-admin-prendas .inventory-title-group h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+.page-admin-prendas .inventory-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+.page-admin-prendas .inventory-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.page-admin-prendas .inventory-search-input,
+.page-admin-prendas .inventory-select {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #374151;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+.page-admin-prendas .inventory-search-input {
+    padding: 0.55rem 0.85rem 0.55rem 2.3rem;
+    width: 250px;
+}
+.page-admin-prendas .inventory-select {
+    padding: 0.55rem 1rem;
+}
+.page-admin-prendas .inventory-search-input:focus,
+.page-admin-prendas .inventory-select:focus {
+    background-color: #ffffff;
+    border-color: #6b7280;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1);
+}
+@media (max-width: 1200px) {
+    .page-admin-prendas .inventory-card { padding: 1rem; }
+}
+
+/* Igualar el contenedor Inventario de prendas al diseño de Empleado */
+.page-admin-prendas .inventory-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+.page-admin-prendas .inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.page-admin-prendas .inventory-title-group h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+.page-admin-prendas .inventory-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+.page-admin-prendas .inventory-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.page-admin-prendas .inventory-search-input {
+    width: 250px;
+    padding: 0.55rem 0.85rem 0.55rem 2.3rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #374151;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+.page-admin-prendas .inventory-select {
+    padding: 0.55rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #374151;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+.page-admin-prendas .inventory-search-input:focus,
+.page-admin-prendas .inventory-select:focus {
+    background-color: #ffffff;
+    border-color: #6b7280;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1);
+}
+@media (max-width: 1200px) {
+    .page-admin-prendas .inventory-card {
+        padding: 1rem;
+    }
+}

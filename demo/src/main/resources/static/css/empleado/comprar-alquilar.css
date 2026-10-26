@@ -1,0 +1,591 @@
+/* Flujo de cinco pasos de Comprar / Alquilar */
+.page-empleado-comprar-alquilar .content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+/* --- Stepper Circular que ocupa el 100% del contenedor --- */
+.full-width-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100% !important; /* Se expande en todo el ancho */
+    margin: 0 0 12px 0;
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+}
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.step-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f0ece6;
+    color: var(--muted, #777);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid var(--border, #e7e1d8);
+    transition: all 0.2s ease;
+}
+.step-item.active .step-circle {
+    background: var(--gold, #b78b48);
+    color: #fff;
+    border-color: var(--gold, #b78b48);
+}
+.step-item span {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--muted, #777);
+    font-weight: 600;
+    white-space: nowrap;
+}
+.step-item.active span {
+    color: var(--ink, #252525);
+}
+.step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border, #e7e1d8);
+    margin: 0 12px;
+    margin-bottom: 20px;
+}
+.step-line.active {
+    background: var(--gold, #b78b48);
+}
+
+/* Pestañas de Operación */
+.operation-tabs, .payment-methods {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    width: 100%;
+}
+.operation-tabs button, .payment-methods button {
+    border: 1px solid var(--border,#e7e1d8);
+    border-radius: 9px;
+    padding: 10px 18px;
+    background: #fff;
+    color: inherit;
+    cursor: pointer;
+    font-weight: 600;
+}
+.operation-tabs button.active, .payment-methods button.active {
+    background: #25221f;
+    color: #fff;
+    border-color: #25221f;
+}
+
+.flow-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Búsqueda y Ficha de Cliente a Ancho Completo --- */
+.full-width-grid {
+    display: flex;
+    width: 100%;
+}
+.full-width-field {
+    width: 100%;
+}
+.search-input-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 6px;
+    width: 100%;
+}
+.search-input-group input {
+    flex: 1;
+    width: 100%;
+}
+
+.client-result-card {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 16px;
+    align-items: center;
+    margin-top: 16px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--border, #e7e1d8);
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.client-avatar-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.avatar-circle {
+    width: 44px;
+    height: 44px;
+    font-weight: bold;
+    background: #e0e0e0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+}
+.client-sub-text {
+    font-size: 12px;
+    color: var(--muted, #777);
+}
+.client-detail-col span {
+    font-size: 11px;
+    color: var(--muted, #777);
+    display: block;
+    margin-bottom: 2px;
+}
+.client-detail-col strong {
+    font-size: 13px;
+    color: var(--ink, #252525);
+}
+
+/* --- Botones Seleccionables de Estado (Nuevo / Seminuevo) --- */
+.condition-toggle-group {
+    display: inline-flex;
+    background: #f0ece6;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid var(--border, #e7e1d8);
+    gap: 2px;
+}
+.condition-btn {
+    border: none;
+    background: transparent;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted, #666);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.condition-btn:hover {
+    color: var(--ink, #252525);
+}
+.condition-btn.active {
+    background: #fff;
+    color: var(--ink, #252525);
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* --- Filtros Avanzados y Catálogo --- */
+.catalog-header-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+}
+.catalog-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.advanced-filters-bar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border, #e7e1d8);
+    width: 100%;
+}
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.filter-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted, #777);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.filter-group .filter-select {
+    width: 100%;
+}
+
+.multi-garment-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border, #e7e1d8);
+    width: 100%;
+}
+.filter-label-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink, #252525);
+}
+.checkbox-pills-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+.checkbox-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #fbf6ed;
+    border: 1px solid var(--border, #e7e1d8);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink, #252525);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.checkbox-pill:hover {
+    border-color: var(--gold, #b78b48);
+}
+.checkbox-pill input[type="checkbox"] {
+    accent-color: var(--gold, #b78b48);
+    cursor: pointer;
+}
+
+/* --- Tarjetas del Catálogo Disponible (Grilla expandida) --- */
+.catalog-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+    width: 100%;
+}
+.catalog-item-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    border: 1px solid var(--border, #e7e1d8);
+    border-radius: 12px;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.catalog-item-card:hover {
+    border-color: var(--gold, #b78b48);
+}
+.catalog-item-card.selected {
+    border: 2px solid var(--gold, #b78b48);
+    background: #fff;
+}
+.catalog-thumb {
+    width: 70px;
+    height: 85px;
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.catalog-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.catalog-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.catalog-info strong {
+    font-size: 14px;
+    color: var(--ink, #252525);
+}
+.catalog-info span {
+    font-size: 11px;
+    color: var(--muted, #777);
+}
+.catalog-price {
+    font-weight: 700;
+    color: var(--ink, #252525) !important;
+    font-size: 13px !important;
+}
+.catalog-price small {
+    font-weight: normal;
+    color: var(--muted, #777);
+}
+.check-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--gold, #b78b48);
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+.filter-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border, #e7e1d8);
+    background: #fff;
+    font-size: 13px;
+    color: var(--ink, #252525);
+    outline: none;
+}
+.actions.right-aligned {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+    width: 100%;
+}
+
+.step-indicator-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold, #b78b48);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #f0f8f0;
+    color: #2e7d32;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #c8e6c9;
+}
+.status-pill span {
+    font-size: 10px;
+}
+
+.is-disabled { opacity: .5; cursor: not-allowed; pointer-events: auto; }
+
+@media(max-width: 1024px) {
+    .advanced-filters-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media(max-width: 760px){
+    .full-width-stepper { grid-template-columns: 1fr 1fr; display: grid; }
+    .step-line { display: none; }
+    .catalog-grid-cards, .client-result-card, .advanced-filters-bar { grid-template-columns: 1fr; }
+    .catalog-title-wrapper { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* ========================================================
+   ESTILOS NUEVOS: Contenedor de Finanzas y Métodos de Pago
+   ======================================================== */
+.finanzas-section {
+    background: #fff;
+    border: 1px solid var(--border, #e7e1d8);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.finanzas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.finanzas-header h3 {
+    font-size: 16px;
+    color: var(--ink, #252525);
+    margin: 0;
+}
+
+.badge-tg {
+    background: var(--gold, #b3820a);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.metodos-pago {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.metodo-btn {
+    background: #ffffff;
+    border: 1.5px solid var(--border, #d0d5dd);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #344054;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.metodo-btn:hover {
+    border-color: var(--gold, #b3820a);
+}
+
+.metodo-btn.active {
+    border: 1.5px solid var(--gold, #b3820a) !important;
+    background-color: #fdf8e9 !important;
+    color: var(--gold, #b3820a) !important;
+}
+
+.pago-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+}
+
+.pago-grid.transferencia-layout {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.yape-qr-box {
+    background: #fdfcf7;
+    border: 1.5px dashed var(--gold, #b3820a);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.yape-qr-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.yape-qr-img-wrapper {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border, #e2e2e2);
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.yape-qr-img-wrapper img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+
+.yape-qr-phone {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--gold, #b3820a);
+    letter-spacing: 1px;
+}
+
+@media(max-width: 768px) {
+    .metodos-pago, .pago-grid, .pago-grid.transferencia-layout {
+        grid-template-columns: 1fr;
+    }
+}
+/* Ficha de cliente con la misma distribución compacta de las demás pantallas. */
+.client-result-card {
+    display: grid;
+    grid-template-columns: minmax(230px, 1.5fr) repeat(3, minmax(130px, 1fr));
+    gap: 22px;
+    align-items: center;
+    margin-top: 16px;
+    padding: 16px 18px;
+    background: #fbf7ee;
+    border: 1px solid #e7d7b5;
+    border-radius: 13px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.client-avatar-info { display:flex; align-items:center; gap:14px; min-width:0; }
+.avatar-circle {
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f1e5cc;
+    border:1px solid #e7d7b5;
+    color:#76591f;
+    font-size:12px;
+    font-weight:700;
+}
+.client-avatar-info strong { display:block; color:#211d17; font-size:15px; font-weight:750; line-height:1.35; }
+.client-sub-text { display:block; margin-top:3px; color:#786f61; font-size:11px; }
+.client-detail-col span { display:block; margin-bottom:5px; color:#786f61; font-size:11px; font-weight:500; }
+.client-detail-col strong { display:block; color:#211d17; font-size:14px; font-weight:700; line-height:1.4; overflow-wrap:anywhere; }
+@media(max-width:760px) {
+    .client-result-card { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 14px; padding:15px; }
+    .client-avatar-info { grid-column:1 / -1; }
+}
+
+/* DNI y calificación en celdas independientes dentro de la ficha. */
+.client-result-card { grid-template-columns: minmax(180px,1.4fr) minmax(100px,.8fr) minmax(120px,.8fr) minmax(150px,1fr) minmax(130px,1fr); gap:22px; }
+.client-stars { color:#d99a73 !important; letter-spacing:1px; white-space:nowrap; font-size:30px !important; line-height:1.4; }
+.client-stars .stars-filled { color:#d99a73; }
+.client-stars .stars-empty { color:#e8cdbd; }
+@media(max-width:1000px) { .client-result-card { grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; } .client-avatar-info { grid-column:auto; } }
+@media(max-width:760px) { .client-result-card { grid-template-columns:repeat(2,minmax(0,1fr)); } .client-avatar-info { grid-column:1 / -1; } }
+
+/* Imágenes del catálogo de Comprar / Alquilar */
+.page-empleado-comprar-alquilar .catalog-thumb { overflow: hidden; background: #f5f0e6; }
+.page-empleado-comprar-alquilar .catalog-thumb img { display: block; width: 100%; height: 100%; min-height: 150px; object-fit: cover; object-position: center; }
+
+
+/* Mantener las cinco estrellas en una sola línea */
+.client-stars { display: inline-flex !important; flex-wrap: nowrap !important; white-space: nowrap !important; align-items: center; width: max-content; max-width: none; font-size:30px !important; line-height:1.4; }
+.client-stars .stars-filled, .client-stars .stars-empty { display: inline; white-space: nowrap; flex: 0 0 auto; }
+.client-detail-col { min-width: 0; }

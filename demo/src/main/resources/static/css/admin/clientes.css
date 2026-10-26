@@ -1,0 +1,36 @@
+/* Estilos específicos de Clientes. */
+.page-admin-clientes .content { }
+
+/* Contenedor de registro de clientes: igual al de empleados */
+.page-admin-clientes .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.page-admin-clientes .status-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.page-admin-clientes .status-badge.active {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+.page-admin-clientes .status-badge.active .dot {
+    background-color: #137333;
+}
+
+.page-admin-clientes .status-badge.debt {
+    background-color: #fce8e6;
+    color: #c5221f;
+}
+.page-admin-clientes .status-badge.debt .dot {
+    background-color: #c5221f;
+}

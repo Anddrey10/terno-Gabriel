@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>Comprar / Alquilar · Paso 1 de 5 | Terno Gabriel</title>
+    <link rel="icon" th:href="@{/img/favicon.svg}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/empleado/comprar-alquilar.css}" />
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body class="page-empleado-comprar-alquilar">
+    <div class="app-shell">
+        <aside th:replace="~{fragments/sidebar-empleado :: sidebar('comprar-alquilar')}"></aside>
+
+        <main class="main">
+            <header th:replace="~{fragments/mobile-header :: mobile-header}"></header>
+
+            <div class="page-header">
+                <div>
+                    <span class="frame-label">E-04</span>
+                    <h1>Comprar / Alquilar</h1>
+                    <p>Gestiona ventas y alquileres</p>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn notification" data-action="notify" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><i></i></button>
+                    <div class="date-block"><span>Hoy</span><strong data-current-date>-- --- ----</strong></div>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Pestañas de Tipo de Operación (Estilo Solapa Subrayada) -->
+                <div aria-label="Tipo de operación" class="operation-tabs" style="display: flex; border-bottom: 1px solid #e4e7ec; margin-bottom: 24px; gap: 0;">
+                    <button data-operation="Comprar" type="button" style="padding: 10px 32px; background: none; border: none; font-size: 15px; font-weight: 600; color: #b3820a; border-bottom: 3px solid #b3820a; cursor: pointer;">
+                        Comprar
+                    </button>
+                    <button class="active" data-operation="Alquilar" type="button" style="padding: 10px 32px; background: none; border: none; font-size: 15px; font-weight: 500; color: #344054; border-bottom: 3px solid transparent; cursor: pointer;">
+                        Alquilar
+                    </button>
+                </div>
+
+                <!-- Stepper Circular de Ancho Completo -->
+                <div aria-label="Paso 1 de 5" class="flow-stepper full-width-stepper">
+                    <div class="step-item active">
+                        <div class="step-circle">1</div>
+                        <span>Terno y plazo</span>
+                    </div>
+                    <div class="step-line active"></div>
+                    <div class="step-item">
+                        <div class="step-circle">2</div>
+                        <span>Datos Cliente</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-circle">3</div>
+                        <span>Términos</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-circle">4</div>
+                        <span>Pago</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-circle">5</div>
+                        <span>Boleta</span>
+                    </div>
+                </div>
+
+                <!-- Sección: Búsqueda de cliente -->
+                <section class="card flow-card">
+                    <div class="card-head">
+                        <div>
+                            <h2>Búsqueda de cliente</h2>
+                            <p>Consulta rápida por documento de identidad</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid full-width-grid">
+                        <label class="field full-width-field">
+                            <span>DNI del cliente</span>
+                            <div class="search-input-group">
+                                <input data-flow-field="" inputmode="numeric" name="dni" placeholder="73482916" value="" />
+                                <button type="button" class="btn primary" style="background-color: #b3820a; border: none;">🔍 Buscar Cliente</button>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Ficha del cliente encontrado -->
+                    <div class="client-result-card">
+                        <div class="client-avatar-info">
+                            <div class="avatar-circle">DM</div>
+                            <div><strong>Diego Mendoza Ruiz</strong></div>
+                        </div>
+                        <div class="client-detail-col"><span>DNI</span><strong>73482916</strong></div>
+                        <div class="client-detail-col"><span>Calificación</span><strong class="client-stars">★★★★★</strong></div>
+                        <div class="client-detail-col"><span>Dirección</span><strong>Av. Brasil 1240, Breña</strong></div>
+                        <div class="client-detail-col"><span>Teléfono</span><strong>987 421 350</strong></div>
+                    </div>
+                </section>
+
+                <!-- Sección: Catálogo disponible con filtros avanzados -->
+                <section class="card flow-card">
+                    <div class="card-head catalog-header-box">
+                        <div class="catalog-title-wrapper">
+                            <div>
+                                <h2>Catálogo disponible</h2>
+                                <p>Selecciona una prenda o filtra según tus preferencias</p>
+                            </div>
+
+                            <!-- Botones Seleccionables para Nuevo / Seminuevo -->
+                            <div class="condition-toggle-group">
+                                <button type="button" class="condition-btn active" data-condition="all">Todos</button>
+                                <button type="button" class="condition-btn" data-condition="nuevo">Nuevo</button>
+                                <button type="button" class="condition-btn" data-condition="seminuevo">Seminuevo</button>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Filtros Avanzados -->
+                        <div class="advanced-filters-bar">
+                            <div class="filter-group">
+                                <label>Color</label>
+                                <select class="filter-select" data-filter="color">
+                                    <option value="">Todos los colores</option>
+                                    <option value="azul-marino">Azul Marino</option>
+                                    <option value="negro">Negro</option>
+                                    <option value="gris-perla">Gris Perla</option>
+                                    <option value="plomo">Plomo / Oxford</option>
+                                    <option value="rojo-burgundy">Rojo / Burgundy (Vino)</option>
+                                    <option value="beige">Beige / Cream</option>
+                                    <option value="otro">Otros colores</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Categoría</label>
+                                <select class="filter-select" data-filter="categoria">
+                                    <option value="">Todas las edades</option>
+                                    <option value="adulto">Adulto</option>
+                                    <option value="joven">Joven</option>
+                                    <option value="nino">Niño</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Estilo</label>
+                                <select class="filter-select" data-filter="estilo">
+                                    <option value="">Todos los estilos</option>
+                                    <option value="ejecutivo">Ejecutivo</option>
+                                    <option value="smoking">Smoking</option>
+                                    <option value="clasico">Clásico</option>
+                                    <option value="moderno">Moderno Slim</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Talla</label>
+                                <select class="filter-select" data-filter="talla">
+                                    <option>Todas las tallas</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Componentes individuales (Selección Múltiple) -->
+                        <div class="multi-garment-filter">
+                            <span class="filter-label-title">Componentes individuales (Selección múltiple):</span>
+                            <div class="checkbox-pills-group">
+                                <label class="checkbox-pill"><input type="checkbox" name="prendas_ind" value="saco" /> Saco</label>
+                                <label class="checkbox-pill"><input type="checkbox" name="prendas_ind" value="pantalon" /> Pantalón</label>
+                                <label class="checkbox-pill"><input type="checkbox" name="prendas_ind" value="chaleco" /> Chaleco</label>
+                                <label class="checkbox-pill"><input type="checkbox" name="prendas_ind" value="corbata" /> Corbata / Michi</label>
+                                <label class="checkbox-pill"><input type="checkbox" name="prendas_ind" value="camisa" /> Camisa</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjetas de productos del catálogo -->
+                    <div class="catalog-grid-cards">
+                        <article class="catalog-item-card selected">
+                            <div class="catalog-thumb">
+                                <img th:src="@{/img/terno-azul.jpg}" src="/img/terno-azul.jpg" alt="Ejecutivo Azul Noche" />
+                            </div>
+                            <div class="catalog-info">
+                                <strong>Ejecutivo Azul Noche</strong>
+                                <span>TG-001 · Adulto · Azul Marino · Talla M</span>
+                                <span class="catalog-price">S/ 1,290 <small>· Alq. S/ 180</small></span>
+                            </div>
+                            <div class="check-badge">✓</div>
+                        </article>
+
+                        <article class="catalog-item-card">
+                            <div class="catalog-thumb">
+                                <img th:src="@{/img/smoking-negro.jpg}" src="/img/smoking-negro.jpg" alt="Smoking Negro Premium" />
+                            </div>
+                            <div class="catalog-info">
+                                <strong>Smoking Negro Premium</strong>
+                                <span>TG-002 · Joven · Negro · Talla L</span>
+                                <span class="catalog-price">S/ 1,590 <small>· Alq. S/ 240</small></span>
+                            </div>
+                        </article>
+
+                        <article class="catalog-item-card">
+                            <div class="catalog-thumb">
+                                <img th:src="@{/img/gris-perla.jpg}" src="/img/gris-perla.jpg" alt="Clásico Gris Perla" />
+                            </div>
+                            <div class="catalog-info">
+                                <strong>Clásico Gris Perla</strong>
+                                <span>TG-003 · Adulto · Gris Perla · Talla M</span>
+                                <span class="catalog-price">S/ 1,190 <small>· Alq. S/ 160</small></span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="actions right-aligned-buttons" style="display: flex; justify-content: flex-end; margin-top: 32px;">
+                        <a class="btn primary" href="/empleado/comprar-alquilar/paso-2" style="padding: 10px 24px; border-radius: 8px; border: none; background-color: #b3820a; color: #ffffff; text-decoration: none; font-weight: 600;">Continuar ›</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div th:replace="~{fragments/toast :: toast('Cambios guardados')}"></div>
+    <script th:src="@{/js/api.js}" defer></script>
+    <script defer="" th:src="@{/js/app.js}"></script>
+    <script defer="" th:src="@{/js/empleado/comprar-alquilar.js}"></script>
+
+    <!-- Script simple para la selección de botones de Estado (Nuevo / Seminuevo) -->
+    <script>
+        document.querySelectorAll('.condition-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.condition-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

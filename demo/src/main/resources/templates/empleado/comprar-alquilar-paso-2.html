@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>Comprar / Alquilar · Paso 2 de 5 | Terno Gabriel</title>
+    <link rel="icon" th:href="@{/img/favicon.svg}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/empleado/comprar-alquilar.css}" />
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body class="page-empleado-comprar-alquilar">
+    <div class="app-shell">
+        <aside th:replace="~{fragments/sidebar-empleado :: sidebar('comprar-alquilar')}"></aside>
+
+        <main class="main">
+            <header th:replace="~{fragments/mobile-header :: mobile-header}"></header>
+
+            <div class="page-header">
+                <div>
+                    <span class="frame-label">E-04</span>
+                    <h1>Comprar / Alquilar</h1>
+                    <p>Gestiona ventas y alquileres</p>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn notification" data-action="notify" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><i></i></button>
+                    <div class="date-block"><span>Hoy</span><strong data-current-date>-- --- ----</strong></div>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Pestañas de Tipo de Operación (Estilo Solapa Subrayada) -->
+                <div aria-label="Tipo de operación" class="operation-tabs" style="display: flex; border-bottom: 1px solid #e4e7ec; margin-bottom: 24px; gap: 0;">
+                    <button data-operation="Comprar" type="button" style="padding: 10px 32px; background: none; border: none; font-size: 15px; font-weight: 600; color: #b3820a; border-bottom: 3px solid #b3820a; cursor: pointer;">
+                        Comprar
+                    </button>
+                    <button class="active" data-operation="Alquilar" type="button" style="padding: 10px 32px; background: none; border: none; font-size: 15px; font-weight: 500; color: #344054; border-bottom: 3px solid transparent; cursor: pointer;">
+                        Alquilar
+                    </button>
+                </div>
+
+                <!-- Stepper Circular de Ancho Completo -->
+                <div aria-label="Paso 2 de 5" class="flow-stepper full-width-stepper">
+                    <div class="step-item active">
+                        <div class="step-circle step-completed">✓</div>
+                        <span>Terno y plazo</span>
+                    </div>
+                    <div class="step-line active"></div>
+                    <div class="step-item active">
+                        <div class="step-circle">2</div>
+                        <span>Datos Cliente</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-circle">3</div>
+                        <span>Términos</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-circle">4</div>
+                        <span>Pago</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-circle">5</div>
+                        <span>Boleta</span>
+                    </div>
+                </div>
+
+                <!-- Formulario Paso 2 (3 columnas x 2 filas) -->
+                <section class="card flow-card">
+                    <div class="card-head">
+                        <div>
+                            <span class="step-indicator-label" style="font-size: 11px; font-weight: 700; color: #b3820a; letter-spacing: 0.05em; text-transform: uppercase;">PASO 2 DE 5</span>
+                            <h2 style="font-size: 20px; font-weight: 600; color: #101828; margin-top: 4px;">Datos del cliente y plazo</h2>
+                        </div>
+                    </div>
+
+                    <form class="flow-form" action="#" method="POST">
+                        <div class="form-grid three-columns-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px 16px;">
+                            <!-- Fila 1 -->
+<label class="field">
+                                <span>DNI</span>
+                                <input data-flow-field="" name="dni" type="text" placeholder="Ej. 73482916" value="" autocomplete="off" inputmode="numeric" maxlength="8" style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<label class="field">
+                                <span>Nombres</span>
+                                <input data-flow-field="" name="nombres" type="text" placeholder="Ej. Luis Alberto" value="" autocomplete="off"  style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<label class="field">
+                                <span>Apellidos</span>
+                                <input data-flow-field="" name="apellidos" type="text" placeholder="Ej. Salazar Vega" value="" autocomplete="off"  style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<!-- Fila 2 -->
+<label class="field">
+                                <span>Teléfono</span>
+                                <input data-flow-field="" name="telefono" type="tel" placeholder="Ej. 987654321" value="" autocomplete="off" inputmode="numeric" maxlength="9" style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<label class="field">
+                                <span>Dirección</span>
+                                <input data-flow-field="" name="direccion" type="text" placeholder="Ej. Av. Larco 123, Trujillo" value="" autocomplete="off"  style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<label class="field">
+                                <span>Correo</span>
+                                <input data-flow-field="" name="correo" type="text" placeholder="Ej. nombre@gmail.com" value="" autocomplete="off"  style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<!-- Fila 3 -->
+<label class="field">
+                                <span>Fecha de recojo</span>
+                                <input data-flow-field="" name="fechaRecojo" type="date" placeholder="" value="" autocomplete="off"  style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<label class="field">
+                                <span>Fecha de devolución</span>
+                                <input data-flow-field="" name="fechaDevolucion" type="date" placeholder="" value="" autocomplete="off"  style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;" />
+                            </label>
+<label class="field">
+                                <span>Estado</span>
+                                <select data-flow-field="" name="estado" style="border: 1px solid #d0d5dd; border-radius: 8px; padding: 10px 14px;">
+                                    <option selected>En proceso</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="actions right-aligned-buttons" style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 32px;">
+                            <a class="btn secondary" href="/empleado/comprar-alquilar" style="padding: 10px 24px; border-radius: 8px; border: 1px solid #d0d5dd; background: #fff; color: #344054; text-decoration: none; font-weight: 600;">Atrás</a>
+                            <a class="btn primary" href="/empleado/comprar-alquilar/paso-3" style="padding: 10px 24px; border-radius: 8px; border: none; background-color: #b3820a; color: #ffffff; text-decoration: none; font-weight: 600;">Continuar</a>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div th:replace="~{fragments/toast :: toast('Cambios guardados')}"></div>
+    <script th:src="@{/js/api.js}" defer></script>
+    <script defer="" th:src="@{/js/app.js}"></script>
+    <script defer="" th:src="@{/js/empleado/comprar-alquilar.js}"></script>
+</body>
+
+</html>

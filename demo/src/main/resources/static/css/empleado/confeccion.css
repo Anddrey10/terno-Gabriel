@@ -1,0 +1,263 @@
+.page-empleado-confeccion .content { 
+    padding-bottom: 40px;
+}
+
+.orden-item-btn:hover {
+    filter: brightness(0.97);
+    transform: translateY(-1px);
+}
+
+.finanzas-section {
+    background: #fff;
+    border-radius: 12px;
+}
+
+.finanzas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge-tg {
+    background: #fffdf5;
+    color: #b8860b;
+    border: 1px solid #d4af37;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Ticket ya pagado por completo: reemplaza a la forma de pago y los montos */
+.aviso-pagado-total { display: flex; align-items: flex-start; gap: 12px; margin-top: 4px; padding: 14px 16px; border: 1px solid #bfe3cd; background: #eef9f2; color: #14532d; border-radius: 10px; }
+.aviso-pagado-total[hidden] { display: none; }
+.aviso-pagado-total .ok-icon { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: #1e7b45; color: #fff; display: grid; place-items: center; font-weight: 700; }
+.aviso-pagado-total strong { display: block; font-size: 14px; }
+.aviso-pagado-total p { margin: 3px 0 0; font-size: 13px; line-height: 1.45; }
+
+.metodos-pago {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metodo-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.metodo-btn.active {
+    border: 2px solid #b8860b;
+    color: #b8860b;
+    background: #fffdf5;
+}
+
+.pago-grid {
+    display: grid;
+    gap: 16px;
+    align-items: center;
+}
+
+.pago-grid.transferencia-layout {
+    grid-template-columns: 1fr 1fr !important;
+}
+
+.yape-qr-box {
+    background: #fdfcf7;
+    border: 1px dashed #b8860b;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.yape-qr-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.yape-qr-img-wrapper {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e2e2;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.yape-qr-img-wrapper img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+
+.yape-qr-phone {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #b8860b;
+    letter-spacing: 1px;
+}
+
+/* Tarjetas de identificación de cliente/orden: crema, columnas claras y hover suave */
+#seccionBusquedaOrdenes #listaOrdenesProximas { gap: 12px !important; }
+#seccionBusquedaOrdenes .orden-item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  padding: 15px 18px !important;
+  border: 1px solid #e4d7bb !important;
+  border-radius: 12px !important;
+  background: #fbf7ee !important;
+  color: #211d17;
+  box-shadow: 0 2px 7px rgba(72, 55, 25, .045);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+#seccionBusquedaOrdenes .orden-item-btn > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+#seccionBusquedaOrdenes .orden-item-btn > div > div:last-child { min-width: 0; }
+#seccionBusquedaOrdenes .orden-item-btn strong {
+  color: #211d17 !important;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+#seccionBusquedaOrdenes .orden-item-btn > div > div:last-child > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+  row-gap: 5px;
+  margin-top: 5px;
+  color: #746f65 !important;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+#seccionBusquedaOrdenes .orden-item-btn .avatar {
+  flex: 0 0 40px;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid #e4d7bb;
+  background: #f1e5cc !important;
+  color: #6e5528 !important;
+}
+#seccionBusquedaOrdenes .orden-item-btn > span {
+  flex: 0 0 auto;
+  max-width: 190px;
+  padding: 6px 10px !important;
+  border: 1px solid #e4d7bb;
+  border-radius: 8px !important;
+  background: #f1e5cc !important;
+  color: #6d5529 !important;
+  font-size: 11px !important;
+  line-height: 1.4;
+  white-space: normal;
+  text-align: center;
+}
+#seccionBusquedaOrdenes .orden-item-btn:hover {
+  transform: scale(1.012);
+  background: #eee0c2 !important;
+  border-color: #cdb887 !important;
+  box-shadow: 0 7px 16px rgba(72, 55, 25, .10);
+}
+#seccionBusquedaOrdenes .orden-item-btn:focus-visible {
+  outline: 2px solid #b89a5a;
+  outline-offset: 2px;
+}
+@media (max-width: 700px) {
+  #seccionBusquedaOrdenes .orden-item-btn { align-items: flex-start; flex-direction: column; }
+  #seccionBusquedaOrdenes .orden-item-btn > span { margin-left: 53px; max-width: calc(100% - 53px); }
+  #seccionBusquedaOrdenes .orden-item-btn > div > div:last-child > div { grid-template-columns: 1fr; }
+}
+
+
+/* Tarjetas de confección: cada dato ocupa su propia columna y la etiqueta va encima. */
+#seccionBusquedaOrdenes #listaOrdenesProximas .orden-item-btn {
+  display: grid !important;
+  grid-template-columns: minmax(150px, 1.35fr) repeat(3, minmax(88px, .72fr)) minmax(150px, 1.25fr) minmax(185px, 1.15fr);
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 15px 18px !important;
+  border: 1px solid #e4d7bb !important;
+  border-radius: 12px !important;
+  background: #fbf7ee !important;
+  color: #211d17;
+  box-shadow: 0 2px 7px rgba(72,55,25,.045);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+  cursor: pointer;
+}
+#seccionBusquedaOrdenes .orden-identidad { display:flex; align-items:center; gap:12px; min-width:0; }
+#seccionBusquedaOrdenes .orden-nombre, #seccionBusquedaOrdenes .orden-dato { display:flex; flex-direction:column; align-items:flex-start; gap:4px; min-width:0; }
+#seccionBusquedaOrdenes .dato-label { color:#777064; font-size:11px; font-weight:600; line-height:1.2; }
+#seccionBusquedaOrdenes .orden-nombre > strong,
+#seccionBusquedaOrdenes .orden-dato > strong { color:#211d17 !important; font-size:15px !important; font-weight:750 !important; line-height:1.35; overflow-wrap:anywhere; }
+#seccionBusquedaOrdenes .orden-vence { justify-self:start; max-width:100%; padding:7px 10px !important; margin:0; border:1px solid #e4d7bb; border-radius:8px !important; background:#f1e5cc !important; color:#6d5529 !important; font-size:11px !important; font-weight:650; line-height:1.4; white-space:normal; text-align:left; }
+#seccionBusquedaOrdenes .orden-item-btn:hover { transform:scale(1.012); background:#eee0c2 !important; border-color:#cdb887 !important; box-shadow:0 7px 16px rgba(72,55,25,.10); }
+#seccionBusquedaOrdenes .orden-item-btn.orden-seleccionada { grid-template-columns:minmax(140px,1.2fr) repeat(3,minmax(80px,.65fr)) minmax(130px,1fr) minmax(170px,1.05fr) auto; }
+#seccionBusquedaOrdenes .orden-item-btn .btn-volver { margin-left:0 !important; justify-self:end; white-space:nowrap; }
+@media (max-width:1100px) {
+ #seccionBusquedaOrdenes #listaOrdenesProximas .orden-item-btn { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ #seccionBusquedaOrdenes .orden-identidad { grid-column:span 2; }
+ #seccionBusquedaOrdenes .orden-vence { grid-column:span 2; }
+ #seccionBusquedaOrdenes .orden-item-btn.orden-seleccionada { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ #seccionBusquedaOrdenes .orden-item-btn .btn-volver { grid-column:3; grid-row:1; }
+}
+@media (max-width:700px) {
+ #seccionBusquedaOrdenes #listaOrdenesProximas .orden-item-btn,
+ #seccionBusquedaOrdenes .orden-item-btn.orden-seleccionada { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ #seccionBusquedaOrdenes .orden-identidad { grid-column:1 / -1; }
+ #seccionBusquedaOrdenes .orden-direccion { grid-column:1 / -1; }
+ #seccionBusquedaOrdenes .orden-vence { grid-column:1 / -1; }
+ #seccionBusquedaOrdenes .orden-item-btn .btn-volver { grid-column:1 / -1; grid-row:auto; justify-self:end; }
+}
+
+
+/* Acciones de la orden seleccionada: el botón queda fuera de la ficha de datos. */
+#seccionBusquedaOrdenes .acciones-orden-seleccionada {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+#seccionBusquedaOrdenes .acciones-orden-seleccionada[hidden] { display: none !important; }
+#seccionBusquedaOrdenes .acciones-orden-seleccionada .btn-volver {
+  padding: 9px 15px;
+  border: 1px solid #d8c49b;
+  border-radius: 8px;
+  background: #fffdf8;
+  color: #76591f;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  transition: background .18s ease, border-color .18s ease;
+}
+#seccionBusquedaOrdenes .acciones-orden-seleccionada .btn-volver:hover {
+  background: #f1e5cc;
+  border-color: #b8860b;
+}
+/* Solo en pantallas anchas: en tableta y celular mandan las reglas responsivas de arriba (antes este !important las anulaba y desbordaba la página) */
+@media (min-width: 1101px) {
+#seccionBusquedaOrdenes .orden-item-btn.orden-seleccionada {
+  grid-template-columns: minmax(150px, 1.35fr) repeat(3, minmax(88px, .72fr)) minmax(150px, 1.25fr) minmax(185px, 1.15fr) !important;
+}
+}

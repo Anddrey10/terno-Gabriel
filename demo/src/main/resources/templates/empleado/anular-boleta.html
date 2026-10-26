@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Anular Boleta | Terno Gabriel</title>
+    <link rel="icon" th:href="@{/img/favicon.svg}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/empleado/anular-boleta.css}">
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body class="page-empleado-anular-boleta">
+    <div class="app-shell">
+        <aside th:replace="~{fragments/sidebar-empleado :: sidebar('anular-boleta')}"></aside>
+        <main class="main">
+            <header th:replace="~{fragments/mobile-header :: mobile-header}"></header>
+            <div class="page-header">
+                <div><span class="frame-label">E-07</span>
+                    <h1>Anular Boleta</h1>
+                    <p>Anulación de operaciones registradas</p>
+                </div>
+                <div class="header-actions"><button class="icon-btn notification" data-action="notify" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><i></i></button>
+                    <div class="date-block"><span>Hoy</span><strong data-current-date>-- --- ----</strong></div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="narrow">
+                    <section class="card">
+                        <div class="card-head">
+                            <div>
+                                <span class="frame-label" style="text-transform: uppercase;">Localizar Operación</span>
+                                <h2>Buscar boleta</h2>
+                            </div>
+                            <div class="filter-row"></div>
+                        </div>
+                        
+                        <div class="search-row">
+                            <label class="field">
+                                <span>DNI o número de boleta</span>
+                                <input type="text" id="searchInput" placeholder="B001-0083" value="" maxlength="9">
+                            </label>
+                            <button class="btn gold-btn" type="button" id="searchBtn">
+                                <i>🔍</i> Buscar
+                            </button>
+                        </div>
+
+                        <!-- Contenedor de Resultado Encontrado (Oculto por defecto) -->
+                        <div class="cancel-summary" id="cancelSummary" hidden>
+                            <div class="cancel-client"><span class="cancel-avatar" id="sumAvatar">CP</span><div class="cancel-client-text"><span>Cliente</span><b id="sumCliente">Carlos Paredes López</b></div></div>
+                            <div><span>Tipo de boleta</span><b id="sumTipo">Alquiler</b></div>
+                            <div><span>Estado</span><b id="sumEstado">Vigente</b></div>
+                            <div><span>DNI</span><b id="sumDni">72849102</b></div>
+                            <div><span>Prenda</span><b id="sumPrenda">Saco Sport Beige - TG-011</b></div>
+                            <div><span>Fecha</span><b id="sumFecha">17/06/2025</b></div>
+                            <div><span>Monto</span><b id="sumMonto">S/ 150.00</b></div>
+                        </div>
+
+                        <!-- Contenedor de No Encontrado (Oculto por defecto) -->
+                        <div class="not-found-box" id="notFoundBox" hidden>
+                            <span>❌ No se encontró ninguna boleta o DNI registrado con ese código.</span>
+                        </div>
+
+                        <label class="field" style="margin-top: 1.5rem;">
+                            <span>Motivo de anulación *</span>
+                            <textarea id="motivoInput" placeholder="Describe el motivo de la anulación" rows="3"></textarea>
+                        </label>
+
+                        <div class="amber-notice">
+                            <span class="notice-icon">⚠</span>
+                            <p>Al anular, la prenda volverá al estado <strong>Disponible</strong>. Las reservas vinculadas también serán canceladas.</p>
+                        </div>
+
+                        <div class="actions right-align">
+                            <button class="btn danger" type="button" id="anularBtn" disabled>Anular boleta</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Confirmación de Anulación -->
+    <div class="modal-backdrop" id="confirmModal" hidden>
+        <div class="modal-card">
+            <h3>¿Quieres anular esta boleta?</h3>
+            <p>Esta acción quedará registrada en el historial del sistema y no se podrá deshacer.</p>
+            <div class="modal-actions">
+                <button class="btn secondary" type="button" id="cancelModalBtn">Cancelar</button>
+                <button class="btn danger" type="button" id="confirmModalBtn">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/toast :: toast('Cambios guardados')}"></div>
+    <script th:src="@{/js/api.js}" defer></script>
+    <script th:src="@{/js/app.js}" defer></script>
+    <script th:src="@{/js/empleado/anular-boleta.js}" defer></script>
+</body>
+
+</html>

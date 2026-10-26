@@ -1,0 +1,210 @@
+/* Estilos específicos de Inicio Empleado */
+.page-empleado-inicio .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Cuadrícula de KPIs */
+.page-empleado-inicio .kpi-grid.four {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1200px) {
+    .page-empleado-inicio .kpi-grid.four {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-empleado-inicio .kpi-grid.four {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tarjetas y KPIs */
+.page-empleado-inicio .card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.page-empleado-inicio .card.kpi {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+}
+
+/* --- Colores de los iconos KPI --- */
+.page-empleado-inicio .kpi-grid > div:nth-child(1) .kpi-icon {
+    background-color: #fcf8f2;
+    border: 1px solid #faeeda;
+    color: #b06000;
+}
+
+.page-empleado-inicio .kpi-grid > div:nth-child(2) .kpi-icon {
+    background-color: #e8f0fe;
+    border: 1px solid #d2e3fc;
+    color: #1a73e8;
+}
+
+.page-empleado-inicio .kpi-grid > div:nth-child(3) .kpi-icon {
+    background-color: #fcf8f2;
+    border: 1px solid #faeeda;
+    color: #b06000;
+}
+
+.page-empleado-inicio .kpi-grid > div:nth-child(4) .kpi-icon {
+    background-color: #fce8e6;
+    border: 1px solid #fad2cf;
+    color: #c5221f;
+}
+
+.page-empleado-inicio .kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.page-empleado-inicio .kpi-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.page-empleado-inicio .kpi-copy span {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.page-empleado-inicio .kpi-copy strong {
+    font-size: 24px;
+    color: #111827;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.page-empleado-inicio .kpi-copy small {
+    font-size: 12px;
+    color: #4b5563;
+    margin-top: 2px;
+}
+
+/* Cabecera de la sección de la tabla */
+.page-empleado-inicio .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.page-empleado-inicio .card-head h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px 0;
+}
+
+.page-empleado-inicio .card-head p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.page-empleado-inicio .searchbox {
+    padding: 8px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 240px;
+}
+
+/* Tabla de datos */
+.page-empleado-inicio .table-wrap {
+    overflow-x: auto;
+}
+
+.page-empleado-inicio .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.page-empleado-inicio .data-table th {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    letter-spacing: 0.05em;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #fafafa;
+}
+
+.page-empleado-inicio .data-table td {
+    padding: 16px;
+    font-size: 14px;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.page-empleado-inicio .data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Badges / Etiquetas de Estado (Exacto a la imagen) --- */
+.page-empleado-inicio .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.page-empleado-inicio .badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+/* Estado: Listo para entrega (Verde) */
+.page-empleado-inicio .badge.success {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+.page-empleado-inicio .badge.success .dot { 
+    background-color: #137333; 
+}
+
+/* Estado: Pendiente (Amarillo / Naranja suave)[cite: 1] */
+.page-empleado-inicio .badge.warning {
+    background-color: #fef7e0;
+    color: #b06000;
+}
+.page-empleado-inicio .badge.warning .dot { 
+    background-color: #b06000; 
+}
+
+/* Estado: En demora (Rojo)[cite: 1] */
+.page-empleado-inicio .badge.danger {
+    background-color: #fce8e6;
+    color: #c5221f;
+}
+.page-empleado-inicio .badge.danger .dot { 
+    background-color: #c5221f; 
+}

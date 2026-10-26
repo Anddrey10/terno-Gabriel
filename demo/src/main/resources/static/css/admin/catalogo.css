@@ -1,0 +1,134 @@
+/* Estilos específicos de Catálogo. */
+.page-admin-catalogo .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.advanced-filters-container {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.filters-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 8px;
+}
+
+.filters-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-reset-filters {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-reset-filters:hover {
+    background: #fef2f2;
+}
+
+.filters-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+}
+
+.filter-select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    font-size: 14px;
+    color: #1f2937;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.filter-select:focus {
+    border-color: #3b82f6;
+    background-color: #fff;
+}
+
+.components-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 12px;
+}
+
+.components-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.checkbox-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fdfbf7;
+    border: 1px solid #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.chip-checkbox:hover {
+    border-color: #d1d5db;
+    background: #f3f4f6;
+}
+
+.chip-checkbox input {
+    accent-color: #b45309;
+    cursor: pointer;
+}
+
+/* Filtro exclusivo del catálogo administrativo para consultar prendas vendidas. */
+.sold-filter-toggle{display:inline-flex;align-items:center;gap:8px;margin-left:auto;color:#6b6255;font-size:.88rem;font-weight:600;white-space:nowrap}
+.sold-filter-toggle input{accent-color:#a8833f;width:16px;height:16px}
+@media(max-width:640px){.sold-filter-toggle{margin:10px 0 0;width:100%}}

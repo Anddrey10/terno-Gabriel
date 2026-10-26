@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Estilos específicos de Empleados - Terno Gabriel (Alineación Perfecta)
+   ========================================================================== */
+
+/* Contenedor principal de la Card */
+.page-admin-empleados .employees-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f2efea;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Encabezado del contenedor */
+.page-admin-empleados .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.page-admin-empleados .head-title h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #222222;
+    margin: 0 0 6px 0;
+}
+
+.page-admin-empleados .head-title p {
+    font-size: 14px;
+    color: #8c8c8c;
+    margin: 0;
+}
+
+/* Botón principal dorado */
+.page-admin-empleados .btn-primary-gold {
+    background-color: #b5830a;
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.page-admin-empleados .btn-primary-gold:hover {
+    background-color: #9c6f06;
+}
+
+.page-admin-empleados .btn-primary-gold .btn-icon {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Envoltura de la tabla */
+.page-admin-empleados .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Tabla de datos con diseño fijo para garantizar simetría */
+.page-admin-empleados .data-table {
+    width: 100%;
+    table-layout: fixed; /* Fuerza a las columnas a respetar los anchos definidos */
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Definición estricta de anchos por columna para mantener la proporción y alineación */
+.page-admin-empleados .data-table th:nth-child(1),
+.page-admin-empleados .data-table td:nth-child(1) { width: 22%; } /* Nombre */
+
+.page-admin-empleados .data-table th:nth-child(2),
+.page-admin-empleados .data-table td:nth-child(2) { width: 18%; } /* Usuario */
+
+.page-admin-empleados .data-table th:nth-child(3),
+.page-admin-empleados .data-table td:nth-child(3) { width: 18%; } /* Rol */
+
+.page-admin-empleados .data-table th:nth-child(4),
+.page-admin-empleados .data-table td:nth-child(4) { width: 16%; } /* Estado */
+
+.page-admin-empleados .data-table th:nth-child(5),
+.page-admin-empleados .data-table td:nth-child(5) { width: 14%; } /* Fecha Ingreso */
+
+.page-admin-empleados .data-table th:nth-child(6),
+.page-admin-empleados .data-table td:nth-child(6) { width: 12%; text-align: center; } /* Acciones */
+
+/* Cabecera de la tabla */
+.page-admin-empleados .data-table thead tr {
+    background-color: #fcfbfa;
+}
+
+.page-admin-empleados .data-table th {
+    padding: 16px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #888279;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-top: 1px solid #f3f0ec;
+    border-bottom: 1px solid #f3f0ec;
+    vertical-align: middle;
+}
+
+/* Filas y celdas perfectamente alineadas verticalmente */
+.page-admin-empleados .data-table tbody tr {
+    border-bottom: 1px solid #f4f2ee;
+    transition: background-color 0.15s ease;
+}
+
+.page-admin-empleados .data-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.page-admin-empleados .data-table tbody tr:hover {
+    background-color: #faf8f5;
+}
+
+.page-admin-empleados .data-table td {
+    padding: 18px;
+    font-size: 14px;
+    color: #444444;
+    vertical-align: middle; /* Alinea los textos e iconos al centro de la fila */
+    word-break: break-word;
+}
+
+/* Estilos de textos */
+.page-admin-empleados .col-name {
+    font-weight: 500;
+    color: #2b2b2b;
+}
+
+.page-admin-empleados .col-user {
+    color: #555555;
+}
+
+.page-admin-empleados .col-date {
+    color: #666666;
+}
+
+/* Badges / Etiquetas de Rol y Estado (Tamaño consistente) */
+.page-admin-empleados .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.page-admin-empleados .badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Variaciones de ROL */
+.page-admin-empleados .role-empleado {
+    background-color: #eaf4fb;
+    color: #225c83;
+}
+.page-admin-empleados .role-empleado .dot {
+    background-color: #2b7bb9;
+}
+
+.page-admin-empleados .role-admin {
+    background-color: #f3e8f8;
+    color: #6b3780;
+}
+.page-admin-empleados .role-admin .dot {
+    background-color: #8b3da8;
+}
+
+/* Variaciones de ESTADO */
+.page-admin-empleados .status-activo {
+    background-color: #eaf6ed;
+    color: #246e37;
+}
+.page-admin-empleados .status-activo .dot {
+    background-color: #2ea24d;
+}
+
+.page-admin-empleados .status-inactivo {
+    background-color: #fdeaea;
+    color: #9c2a2a;
+}
+.page-admin-empleados .status-inactivo .dot {
+    background-color: #d93838;
+}
+
+/* Botón Editar centrado y ordenado */
+.page-admin-empleados .data-table td:last-child {
+    text-align: center;
+}
+
+.page-admin-empleados .btn-action-edit {
+    background: none;
+    border: none;
+    color: #b5830a;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+}
+
+.page-admin-empleados .btn-action-edit:hover {
+    background-color: #faf2e2;
+}
+
+.page-admin-empleados .btn-action-edit svg {
+    stroke: #b5830a;
+}

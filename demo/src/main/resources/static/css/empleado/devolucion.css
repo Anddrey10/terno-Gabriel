@@ -1,0 +1,239 @@
+.page-empleado-devolucion .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.evaluacion-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.field-retraso {
+    flex: 0 0 140px; 
+}
+
+.field-observaciones {
+    flex: 1;
+}
+
+.search-action {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.search-action .field {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.btn-buscar-custom {
+    background-color: #b8860b !important;
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    padding: 0 1.25rem;
+    height: 42px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 6px rgba(184, 134, 11, 0.3);
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.btn-buscar-custom:hover {
+    background-color: #997009 !important;
+}
+
+.btn-buscar-custom .search-icon {
+    font-size: 0.95rem;
+}
+
+/* Tabla de Penalizaciones SIN el cuadro/borde exterior (Diseño limpio y plano) */
+.penalizacion-table-container {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.p-table-header, .p-table-row, .p-table-footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+}
+
+.p-table-header {
+    font-weight: bold;
+    color: #666;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.p-table-header span:first-child {
+    text-align: left;
+}
+
+.p-table-row {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #e2e2e2;
+    color: #333;
+}
+
+.p-table-row span:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.span-col-2 {
+    grid-column: span 2;
+    text-align: left !important;
+    font-weight: bold;
+    color: #444;
+}
+
+.span-col-2-right {
+    grid-column: span 2;
+    text-align: right !important;
+    font-weight: 600;
+    color: #b8860b;
+}
+
+.span-col-3 {
+    grid-column: span 3;
+    text-align: left !important;
+    font-weight: bold;
+    color: #b8860b;
+}
+
+.p-table-footer {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #b8860b;
+    padding-top: 0.8rem;
+    border-top: 2px solid #ddd;
+    margin-top: 0.5rem;
+}
+
+.p-table-footer span:last-child {
+    text-align: center;
+}
+
+/* Sección de Finanzas */
+.finanzas-section {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.finanzas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge-tg {
+    background: #b8860b;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.metodos-pago {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metodo-btn {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.metodo-btn.active {
+    border-color: #b8860b;
+    color: #b8860b;
+    background: #fffdf5;
+}
+
+.pago-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.pago-grid.transferencia-layout {
+    grid-template-columns: 1fr 1fr;
+}
+
+.yape-qr-box {
+    background: #fdfcf7;
+    border: 1px dashed #b8860b;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.yape-qr-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.yape-qr-img-wrapper {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e2e2;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.yape-qr-img-wrapper img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+
+.yape-qr-phone {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #b8860b;
+    letter-spacing: 1px;
+}
+
+.finanzas-actions {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.boleta-actions { margin-top: 1.5rem; }

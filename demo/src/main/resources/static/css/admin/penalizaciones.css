@@ -1,0 +1,382 @@
+/* Estilos específicos de Configuración de Penalizaciones */
+.page-admin-penalizaciones .penalty-settings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 992px) {
+    .page-admin-penalizaciones .penalty-settings {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tarjetas Blancas superiores */
+.page-admin-penalizaciones .card-penalty {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f2efea;
+    min-height: 200px;
+}
+
+/* Fila superior con icono y botón Editar */
+.page-admin-penalizaciones .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.page-admin-penalizaciones .setting-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-admin-penalizaciones .setting-icon.icon-yellow {
+    background-color: #fdf2d8;
+}
+
+.page-admin-penalizaciones .setting-icon.icon-pink {
+    background-color: #fce8e6;
+}
+
+/* Botón Editar dentro de las tarjetas */
+.page-admin-penalizaciones .btn-edit {
+    background: #fbf9f4;
+    border: 1px solid #e8e3d5;
+    color: #66625b;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-admin-penalizaciones .btn-edit:hover {
+    background: #be8a12;
+    color: #ffffff;
+    border-color: #be8a12;
+}
+
+.page-admin-penalizaciones .card-title {
+    font-size: 13px;
+    color: #7d7a75;
+    font-weight: 600;
+}
+
+/* Visualización estática del monto solo lectura */
+.page-admin-penalizaciones .money-display {
+    display: flex;
+    align-items: baseline;
+    margin: 10px 0 6px 0;
+}
+
+.page-admin-penalizaciones .money-display .currency {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a1917;
+    margin-right: 4px;
+}
+
+.page-admin-penalizaciones .money-display .value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1917;
+}
+
+.page-admin-penalizaciones .card-sub {
+    font-size: 12px;
+    color: #99958f;
+    margin: 0;
+}
+
+/* Tarjeta de Modificación Crema */
+.page-admin-penalizaciones .cream-action-card {
+    background: #fbf9f4 !important;
+    border: 1px solid #e8e3d5 !important;
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.page-admin-penalizaciones .meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.page-admin-penalizaciones .meta-title {
+    font-size: 11px;
+    color: #8c8881 !important;
+}
+
+.page-admin-penalizaciones .meta-value {
+    font-size: 14px;
+    color: #2c2a26;
+    font-weight: 700;
+}
+
+/* Botón Dorado */
+.page-admin-penalizaciones .btn-gold {
+    background: #be8a12;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
+}
+
+.page-admin-penalizaciones .btn-gold:hover {
+    background: #a3750d;
+}
+
+/* Historial de Penalizaciones */
+.page-admin-penalizaciones .historial-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f2efea;
+}
+
+.page-admin-penalizaciones .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.page-admin-penalizaciones .card-head h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1917;
+    margin: 0 0 4px 0;
+}
+
+.page-admin-penalizaciones .card-head p {
+    font-size: 13px;
+    color: #8c8881;
+    margin: 0;
+}
+
+.page-admin-penalizaciones .filter-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.page-admin-penalizaciones .date-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.page-admin-penalizaciones .filter-date {
+    padding: 10px 36px 10px 14px;
+    border: 1px solid #e8e3d5;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 13px;
+    color: #555;
+    outline: none;
+    width: 140px;
+}
+
+.page-admin-penalizaciones .calendar-icon {
+    position: absolute;
+    right: 12px;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.page-admin-penalizaciones .filter-select {
+    padding: 10px 14px;
+    border: 1px solid #e8e3d5;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 13px;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+}
+
+.page-admin-penalizaciones .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.page-admin-penalizaciones .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.page-admin-penalizaciones .data-table th {
+    color: #8c8881;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-bottom: 1px solid #f2efea;
+    background: #faf8f5;
+    letter-spacing: 0.5px;
+}
+
+.page-admin-penalizaciones .data-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f7f5f0;
+    color: #33312c;
+}
+
+.page-admin-penalizaciones .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.page-admin-penalizaciones .badge.success {
+    background: #edf7ed;
+    color: #1e7e34;
+}
+
+.page-admin-penalizaciones .badge.pending {
+    background: #fdf5e6;
+    color: #b07d1a;
+}
+
+/* Modal Emergente */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-overlay[hidden] {
+    display: none;
+}
+
+.modal-content {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #1a1917;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+}
+
+.modal-desc {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.modal-input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.modal-money-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e8e3d5;
+    border-radius: 12px;
+    padding: 10px 14px;
+    background: #fbf9f4;
+}
+
+.modal-money-input b {
+    font-size: 18px;
+    color: #be8a12;
+    margin-right: 8px;
+}
+
+.modal-money-input input {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 700;
+    outline: none;
+    width: 100%;
+    color: #1a1917;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn-secondary {
+    background: #f0ede6;
+    color: #555;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    background: #e2ded5;
+}

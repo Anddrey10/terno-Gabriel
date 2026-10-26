@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Terno Gabriel | Iniciar sesión</title>
+    <link rel="icon" th:href="@{/img/favicon.svg}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body>
+    <main class="login-page">
+        <section class="login-brand">
+            <div class="brand-mark large">TG</div>
+            <div class="login-story"><span class="eyebrow light">GESTIÓN DE SASTRERÍA</span>
+                <h1>Precisión en cada medida.<br>Control en cada proceso.</h1>
+                <p>Administra alquileres, ventas y confecciones con la elegancia y detalle que define a Terno Gabriel.
+                </p>
+                <div class="gold-line"></div>
+            </div><span class="login-caption">Sistema interno · Lima, Perú</span>
+        </section>
+        <section class="login-panel">
+            <form class="login-form" id="loginForm">
+                <div class="wordmark"><strong>Terno</strong> <em>Gabriel</em></div>
+                <div class="login-title"><span class="eyebrow">BIENVENIDO</span>
+                    <h2>Inicia sesión</h2>
+                    <p>Ingresa tus credenciales para continuar.</p>
+                </div>
+                <div class="error-message" id="loginError" hidden>Usuario o contraseña incorrectos.</div><label
+                    class="field"><span>Usuario</span><input id="email" type="text" autocomplete="username"
+                        placeholder="Ingresa tu usuario" required></label><label
+                    class="field"><span>Contraseña</span><input id="password" type="password"
+                        placeholder="Ingresa tu contraseña" required></label>
+                <div class="demo-credentials"><span>Credenciales de demostración</span><button type="button"
+                        data-demo="empleado"><b>Empleado</b><small>empleado · 1234</small></button><button type="button"
+                        data-demo="admin"><b>Administrador</b><small>admin · admin</small></button></div><button
+                    class="btn primary" type="submit">Iniciar Sesión <span>›</span></button><button class="subtle-link"
+                    id="forgotPassword" type="button">¿Olvidaste tu contraseña?</button>
+                <p class="prototype-note">Acceso de demostración. Conecta este formulario con la autenticación de Spring
+                    Security antes de usarlo en producción.</p>
+            </form>
+        </section>
+    </main>
+    <script th:src="@{/js/api.js}" defer></script>
+    <script th:src="@{/js/login.js}" defer></script>
+    <script th:src="@{/js/app.js}" defer></script>
+</body>
+
+</html>

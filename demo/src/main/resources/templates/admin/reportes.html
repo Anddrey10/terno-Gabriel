@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Reportes | Terno Gabriel</title>
+    <link rel="icon" th:href="@{/img/favicon.svg}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/reportes.css}">
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body class="page-admin-reportes">
+    <div class="app-shell">
+        <aside th:replace="~{fragments/sidebar-admin :: sidebar('reportes')}"></aside>
+        <main class="main">
+            <header th:replace="~{fragments/mobile-header :: mobile-header}"></header>
+            <div class="page-header">
+                <div><span class="frame-label">A-07</span>
+                    <h1>Reportes</h1>
+                    <p>Indicadores y exportación de resultados</p>
+                </div>
+                <div class="header-actions"><button class="icon-btn notification" data-action="notify" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><i></i></button>
+                    <div class="date-block"><span>Hoy</span><strong data-current-date>-- --- ----</strong></div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- Sección de Filtros y Tipos de Reporte -->
+                <section class="card">
+                    <div class="report-types">
+                        <button class="active" data-report="Ventas"><span>▣</span> Ventas</button>
+                        <button data-report="Alquileres"><span>♧</span> Alquileres</button>
+                        <button data-report="Devoluciones"><span>↩</span> Devoluciones</button>
+                        <button data-report="Confecciones"><span>✂</span> Confecciones</button>
+                        <button data-report="Inventario"><span>♢</span> Inventario</button>
+                        <button data-report="Clientes"><span>♙</span> Calificaciones clientes</button>
+                    </div>
+                    <div class="form-grid four-cols">
+                        <label class="field">
+                            <span>Desde</span>
+                            <input type="date" value="">
+                        </label>
+                        <label class="field">
+                            <span>Hasta</span>
+                            <input type="date" value="">
+                        </label>
+                        <label class="field">
+                            <span>Tipo terno</span>
+                            <select class="select-input">
+                                <option value="Todos">Todos</option>
+                                <option value="Ejecutivo">Ejecutivo</option>
+                                <option value="Smoking">Smoking</option>
+                                <option value="Clasico">Clásico</option>
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span>Cliente (nombre o DNI)</span>
+                            <input class="select-input" id="filtroCliente" type="search" placeholder="Todos los clientes">
+                        </label>
+                        <label class="field">
+                            <span>Empleado</span>
+                            <input class="select-input" id="filtroEmpleado" type="search" placeholder="Todos los empleados">
+                        </label>
+                        <label class="field">
+                            <span>Estado</span>
+                            <select class="select-input">
+                                <option value="Todos">Todos</option>
+                                <option value="Completado">Completado</option>
+                                <option value="Pendiente">Pendiente</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="actions-right">
+                        <button class="btn primary btn-generate" type="button" data-action="generate-report">
+                            <i>📊</i> Generar
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Tarjetas de Estadísticas / KPIs -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">▣</div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Total vendido</span>
+                            <strong class="kpi-value">S/ 42,580</strong>
+                            <span class="kpi-sub">64 operaciones</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🏷️</div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Ticket promedio</span>
+                            <strong class="kpi-value">S/ 665.31</strong>
+                            <span class="kpi-sub positive">+8.4% vs. período anterior</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">⭐</div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Producto destacado</span>
+                            <strong class="kpi-value">Ejecutivo Azul</strong>
+                            <span class="kpi-sub">18 unidades vendidas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NUEVO CONTENEDOR: Gráfico y Estadísticas de Posiciones -->
+                <section class="card analytics-container">
+                    <div class="card-head">
+                        <div>
+                            <h2>Análisis Gráfico y Posiciones</h2>
+                            <p>Distribución de ventas por categoría y rendimiento de productos</p>
+                        </div>
+                    </div>
+                    <div class="analytics-grid">
+                        <!-- Contenedor del Gráfico -->
+                        <div class="chart-box">
+                            <h3>Comportamiento de Ventas (Junio)</h3>
+                            <div class="chart-bars-visual">
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 75%;" title="S/ 12,500"><span>S/ 12.5k</span></div>
+                                    <label>Sem 1</label>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 90%;" title="S/ 15,200"><span>S/ 15.2k</span></div>
+                                    <label>Sem 2</label>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar active-bar" style="height: 60%;" title="S/ 9,880"><span>S/ 9.8k</span></div>
+                                    <label>Sem 3</label>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 40%;" title="S/ 5,000"><span>S/ 5.0k</span></div>
+                                    <label>Sem 4</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel de Datos, Posiciones y Estadísticas -->
+                        <div class="stats-ranking-box">
+                            <h3>Ranking y Posiciones</h3>
+                            <ul class="ranking-list">
+                                <li>
+                                    <div class="rank-info">
+                                        <span class="badge-rank gold">1</span>
+                                        <div>
+                                            <strong>Ejecutivo Azul Noche</strong>
+                                            <small>18 unidades · 28% del total</small>
+                                        </div>
+                                    </div>
+                                    <span class="rank-value">S/ 23,220</span>
+                                </li>
+                                <li>
+                                    <div class="rank-info">
+                                        <span class="badge-rank silver">2</span>
+                                        <div>
+                                            <strong>Smoking Negro</strong>
+                                            <small>12 unidades · 19% del total</small>
+                                        </div>
+                                    </div>
+                                    <span class="rank-value">S/ 19,080</span>
+                                </li>
+                                <li>
+                                    <div class="rank-info">
+                                        <span class="badge-rank bronze">3</span>
+                                        <div>
+                                            <strong>Clásico Gris</strong>
+                                            <small>8 unidades · 12% del total</small>
+                                        </div>
+                                    </div>
+                                    <span class="rank-value">S/ 9,520</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Resultados (Tabla y Exportación) -->
+                <section class="card">
+                    <div class="card-head">
+                        <div>
+                            <h2>Resultados · Ventas</h2>
+                            <p>01/06/2025 — 18/06/2025</p>
+                        </div>
+                        <div class="header-actions-table">
+                            <button class="btn secondary" type="button" data-action="export-pdf">Exportar PDF</button>
+                            <button class="btn secondary" type="button" data-action="export-excel">Exportar Excel</button>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>FECHA</th>
+                                    <th>BOLETA</th>
+                                    <th>CLIENTE</th>
+                                    <th>PRODUCTO</th>
+                                    <th>EMPLEADO</th>
+                                    <th>TOTAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>18/06/2025</td>
+                                    <td>B001-00842</td>
+                                    <td>Andrea Torres</td>
+                                    <td>Ejecutivo Azul Noche</td>
+                                    <td>José Ramírez</td>
+                                    <td>S/ 1,290.00</td>
+                                </tr>
+                                <tr>
+                                    <td>17/06/2025</td>
+                                    <td>B001-00838</td>
+                                    <td>Renato Silva</td>
+                                    <td>Smoking Negro</td>
+                                    <td>Lucía Vargas</td>
+                                    <td>S/ 1,590.00</td>
+                                </tr>
+                                <tr>
+                                    <td>16/06/2025</td>
+                                    <td>B001-00829</td>
+                                    <td>Mario Peralta</td>
+                                    <td>Clásico Gris</td>
+                                    <td>José Ramírez</td>
+                                    <td>S/ 1,190.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <div th:replace="~{fragments/toast :: toast('Cambios guardados')}"></div>
+    <script th:src="@{/js/api.js}" defer></script>
+    <script th:src="@{/js/app.js}" defer></script>
+    <script th:src="@{/js/admin/reportes.js}" defer></script>
+</body>
+
+</html>

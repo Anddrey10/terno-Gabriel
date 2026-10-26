@@ -1,0 +1,254 @@
+/* Estilos específicos de Estado de Prendas */
+.page-empleado-prendas .inventory-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+/* Cabecera de la tarjeta con título e inputs alineados */
+.page-empleado-prendas .card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-empleado-prendas .head-title h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.page-empleado-prendas .subtitle-stats {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Filtros y buscador */
+.page-empleado-prendas .filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.page-empleado-prendas .search-box-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.page-empleado-prendas .search-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.page-empleado-prendas .searchbox {
+  padding: 0.55rem 0.85rem 0.55rem 2.3rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+  width: 250px;
+  color: #374151;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.page-empleado-prendas .searchbox:focus {
+  background-color: #ffffff;
+  border-color: #6b7280;
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1);
+}
+
+.page-empleado-prendas .select-filter {
+  padding: 0.55rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #374151;
+  background-color: #fafafa;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-empleado-prendas .select-filter:focus {
+  background-color: #ffffff;
+  border-color: #6b7280;
+}
+
+/* Estructura y distribución de la Tabla */
+.page-empleado-prendas .table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* table-layout: fixed obliga a que todas las columnas midan exactamente lo mismo (20% c/u) */
+.page-empleado-prendas .data-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Cabecera de la tabla */
+.page-empleado-prendas .data-table thead th {
+  background-color: #f9fafb;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center; /* Centrado uniforme para todos los títulos */
+  vertical-align: middle;
+}
+
+/* Filas y celdas */
+.page-empleado-prendas .data-table tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  font-size: 0.9rem;
+  text-align: center; /* Centrado uniforme para el contenido de las filas en forma de bloque */
+  vertical-align: middle;
+}
+
+.page-empleado-prendas .data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.page-empleado-prendas .data-table tbody tr:hover td {
+  background-color: #f9fafb;
+}
+
+/* Anchos iguales exactos (20% cada una de las 5 columnas) */
+.page-empleado-prendas .col-codigo,
+.page-empleado-prendas .col-nombre,
+.page-empleado-prendas .col-talla,
+.page-empleado-prendas .col-estado,
+.page-empleado-prendas .col-accion {
+  width: 20%;
+}
+
+/* Clases de apoyo */
+.font-mono { font-family: monospace; color: #6b7280; font-size: 0.85rem; }
+.font-medium { font-weight: 600; color: #111827; }
+
+/* Badges con punto indicador */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badge.success { background-color: #ecfdf5; color: #065f46; }
+.badge.success .dot { background-color: #10b981; }
+
+.badge.warning { background-color: #fffbeb; color: #92400e; }
+.badge.warning .dot { background-color: #f59e0b; }
+
+.badge.info { background-color: #eff6ff; color: #1e40af; }
+.badge.info .dot { background-color: #3b82f6; }
+
+.badge.purple { background-color: #f5f3ff; color: #5b21b6; }
+.badge.purple .dot { background-color: #8b5cf6; }
+
+.badge.danger { background-color: #fef2f2; color: #991b1b; }
+.badge.danger .dot { background-color: #ef4444; }
+
+/* Botón Cambiar Estado centrado */
+.btn-action {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto;
+  transition: all 0.15s ease;
+}
+
+.btn-action:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* Distribución uniforme: las ocho columnas tienen el mismo ancho y el contenido no se monta. */
+.page-empleado-prendas .table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.page-empleado-prendas .data-table {
+  width: 100%;
+  min-width: 1120px;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.page-empleado-prendas .data-table thead th,
+.page-empleado-prendas .data-table tbody td {
+  width: 12.5%;
+  box-sizing: border-box;
+  padding: 0.85rem 0.65rem;
+  text-align: center;
+  vertical-align: middle;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.page-empleado-prendas .data-table thead th {
+  line-height: 1.4;
+  font-size: 0.72rem;
+}
+
+.page-empleado-prendas .data-table tbody td {
+  line-height: 1.45;
+  font-size: 0.84rem;
+}
+
+.page-empleado-prendas .data-table tbody td .badge,
+.page-empleado-prendas .data-table tbody td .btn-mini,
+.page-empleado-prendas .data-table tbody td .btn-action {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1200px) {
+  .page-empleado-prendas .inventory-card {
+    padding: 1rem;
+  }
+}
